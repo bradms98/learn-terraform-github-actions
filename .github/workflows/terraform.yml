@@ -71,6 +71,7 @@ jobs:
         if: steps.plan.outcome == 'failure'
         run: exit 1
 
+        # Trying again with push instead of sync
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: terraform apply -auto-approve
